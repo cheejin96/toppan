@@ -15,6 +15,15 @@ Here describe how to run the project in Eclipse.
  
 4. After successfully starting the application, you can start calling the following APIs.
 
+# Test
+Here describe how to run the Unit test
+
+1. Locate the ToppanApplicationTests.java file under path "src/text/java"
+2. Run the test case as imgae below
+![image](https://github.com/cheejin96/toppan/assets/20693378/09835dd8-7ae4-4f0b-9cc7-35890a21e68e)
+3. Then you should be able to see the test case status as shown as image below
+![image](https://github.com/cheejin96/toppan/assets/20693378/d765b0b6-e440-4d8a-95e2-93823a3bd1f0)
+
 # API
 Below is the screenshots that show the steps to call the API
 
