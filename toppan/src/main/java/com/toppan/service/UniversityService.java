@@ -171,4 +171,9 @@ public class UniversityService {
 		
 		return true;
 	}
+	
+	public void hardDeleteUni(long id) {
+		universityDao.deleteById(id);
+		universityDao.flush();
+	}
 }
