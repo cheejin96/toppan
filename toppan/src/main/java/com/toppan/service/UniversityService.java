@@ -34,10 +34,9 @@ public class UniversityService {
 			if(StringUtils.isNotBlank(createdStart) && StringUtils.isNotBlank(createdEnd)) {
 				tsStart = new Timestamp(dateFormat.parse(createdStart).getTime());
 				tsEnd = new Timestamp(dateFormat.parse(createdEnd).getTime());
+				System.out.println("getUniList | tsStart = " + tsStart + " | tsEnd = " + tsEnd);
 			}
 			
-			System.out.println("getUniList | tsStart = " + tsStart);
-			System.out.println("getUniList | tsEnd = " + tsEnd);
 			Pageable pageable = PageRequest.of(pageNo, pageSize);
 			List<University> uniList = universityDao.searchByFilter(name, country, isBookmark, isActive, tsStart, tsEnd, pageable);
 			

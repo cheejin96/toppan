@@ -47,6 +47,20 @@ public class UniversityController {
 	 * Unit Testing: Unit test all non-UI classes, TDD if possible.
 	 */
 	
+	/**
+	 * API to get university list with filtering and pagination function
+	 * 
+	 * @param request 
+	 * @param name - University name
+	 * @param country - University country
+	 * @param isBookmark - University is bookmark
+	 * @param isActive - University is active
+	 * @param createdStart - University created start date range
+	 * @param createdEnd - University created end date range
+	 * @param pageNo - page number start from 0
+	 * @param pageSize - page size by default 10 
+	 * @return list of university or status message
+	 */
 	@RequestMapping(value = "/university", method = RequestMethod.GET)
 	@ResponseBody
 	public String getUniversity(HttpServletRequest request
@@ -96,6 +110,15 @@ public class UniversityController {
 		}
 	}
 	
+	/**
+	 * API to create new university, name and country is a require
+	 * 
+	 * @param request
+	 * @param name - University name
+	 * @param country - University country
+	 * @param webpages - University webpages
+	 * @return Create university status message
+	 */
 	@RequestMapping(value = "/university", method = RequestMethod.POST )
 	@ResponseBody
 	public String postUniversity(HttpServletRequest request
@@ -113,13 +136,20 @@ public class UniversityController {
 				}	
 			}
 			
-			return "Fail to create new university, Please contact administrator.";
+			return "Fail to create new university, name and country is required.";
 		}catch(Exception e) {
-			
+			e.printStackTrace();
 			return "Error, Please contact administrator.";
 		}
 	}
 	
+	/**
+	 * API to get university by id
+	 * 
+	 * @param request
+	 * @param id - University ID
+	 * @return University wtih university ID or status message
+	 */
 	@RequestMapping(value = "/university/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public String getUniversityById(HttpServletRequest request, @PathVariable Long id) {
@@ -142,6 +172,17 @@ public class UniversityController {
 		}
 	}
 	
+	/**
+	 * API to edit university by id
+	 * @param request
+	 * @param id - University ID
+	 * @param name - University name to edit
+	 * @param country - University country to edit
+	 * @param webpages - University webpages to edit
+	 * @param isBookmark - University isBookmark to edit
+	 * @param isActive - University isActive to edit
+	 * @return Edited university or status message
+	 */
 	@RequestMapping(value = "/university/{id}", method = RequestMethod.PUT)	
 	@ResponseBody
 	public String updateUniversityById(HttpServletRequest request
@@ -175,6 +216,13 @@ public class UniversityController {
 		}
 	}
 	
+	/**
+	 * API to soft delete university by id
+	 * 
+	 * @param request
+	 * @param id - University ID
+	 * @return Delete university status message
+	 */
 	@RequestMapping(value = "/university/{id}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public String deleteUniversityById(HttpServletRequest request, @PathVariable Long id) {
@@ -196,6 +244,13 @@ public class UniversityController {
 		}
 	}
 	
+	/**
+	 * API to Bookmark university
+	 * 
+	 * @param request
+	 * @param id - University ID
+	 * @return Bookmark university status message
+	 */
 	@RequestMapping(value = "/university/bookmark/{id}", method = RequestMethod.POST)
 	@ResponseBody
 	public String bookmarkUniversityById(HttpServletRequest request, @PathVariable Long id) {
